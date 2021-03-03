@@ -48,6 +48,9 @@
 ## 2 3
 ## 2 2
 
+# -------------------------------------------------
+
+# sortを用いる
 
 count = gets.to_i
 
@@ -58,7 +61,7 @@ for i in 1..count
     fruits << numbers
 end
 
-fruits.sort!{|a, b| [b[0].to_i, b[1].to_i] <=> [a[0].to_i, a[1].to_i]}
+fruits.sort! {|a, b| [b[0].to_i, b[1].to_i] <=> [a[0].to_i, a[1].to_i]}
 
 fruits.each do |fruit|
     puts "#{fruit[0]} #{fruit[1]}"
