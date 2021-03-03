@@ -66,3 +66,22 @@ fruits.sort! {|a, b| [b[0].to_i, b[1].to_i] <=> [a[0].to_i, a[1].to_i]}
 fruits.each do |fruit|
     puts "#{fruit[0]} #{fruit[1]}"
 end
+
+# -------------------------------------------------
+
+# sort_byを用いる
+
+count = gets.to_i
+
+fruits1 = []
+
+for i in 1..count
+    numbers = gets.chomp.split
+    fruits1 << numbers
+end
+
+fruits2 = fruits1.sort_by {|a| [-a[0].to_i, -a[1].to_i]}
+
+fruits2.each do |fruit|
+    puts "#{fruit[0]} #{fruit[1]}"
+end
