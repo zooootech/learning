@@ -84,9 +84,6 @@ taxi_elements.map! do |elements|
     end
 end
 
-lowest_price = 0
-highest_price = 0
-
 taxi_price = []
 
 taxi_elements.each do |elements|
