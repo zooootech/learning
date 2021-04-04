@@ -80,27 +80,18 @@ for i in 1..h
   array << gets.chomp
 end
 
-j = 0
+i = 0
 array.each do |row|
-  i = 0
-  if (w - 2) == 1 && row[1] == "#"
-    p row
-    puts "#{j} 0"
-    puts "#{j} #{w - 1}"
-  end
   if row[1] == "#"
-    p row
-    puts "#{j} 0"
+    puts "#{i} 0"
   end
-  for i in 0..(w - 1)
-    if row[i] == "#" && row[i + 2] == "#"
-      p row
-      puts "#{j} #{i + 1}"
+  for j in 0..(w - 1)
+    if row[j] == "#" && row[j + 2] == "#"
+      puts "#{i} #{j + 1}"
     end
   end
   if row[w - 2] == "#"
-    p row
-    puts "#{j} #{w - 1}"
+    puts "#{i} #{w - 1}"
   end
-  j += 1
+  i += 1
 end
