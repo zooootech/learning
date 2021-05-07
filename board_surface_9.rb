@@ -43,12 +43,16 @@
 
 x, y, n = gets.chomp.split.map { |i| i.to_i }
 
-steps = 0  # 歩数を初期化
-total_steps = 2  # 合計歩数を予め 2 歩進めておく
+# 歩数を初期化
+steps = 0
+# 合計歩数を予め 2 歩進めておく
+total_steps = 2
 
-depth = 3  # 初回の深さ
+# 初回の深さ
+depth = 3
 
-corner_count = 1  # 角に達した回数を予め 1 にしておく
+# 角に達した回数を予め 1 にしておく
+corner_count = 1
 
 if n == 1
   x += 1
@@ -61,14 +65,20 @@ else
   y += 1
   # 最初の角に達している状態から繰り返し処理をスタート
   while true
+    # 一歩進む
     steps += 1
+    # 合計歩数も 1 増える
     total_steps += 1
+    # 右上から右下のラインを移動する場合
     if corner_count == 0
       y += 1
+    # 右下から左下のラインを移動する場合
     elsif corner_count == 1
       x -= 1
+    # 左下から左上のラインを移動する場合
     elsif corner_count == 2
       y -= 1
+    # 左上から右上のラインを移動する場合
     elsif corner_count == 3
       x += 1
     end
@@ -76,21 +86,31 @@ else
     # 歩いた歩数が、(深さ - 1)のとき角に達する
     if steps == (depth - 1)
       # 角に達する度に corner_count を +1 する
+      # corner_count の値が増えると、進む方向が変わる仕様で、それが x, y の値の増減に作用することになる
       corner_count += 1
-      steps = 0  # 歩数をリセット
+      # 歩数をリセット
+      steps = 0
+      # もし corner_count が 4 に達した場合
       if corner_count == 4
+        # その時点での合計歩数 total_steps が、与えられた歩数 n に達した場合、処理を抜ける
         if total_steps == n
           break
         else
-          steps = 1
-          total_steps += 1
+          # 4 つ目の角（右上の角）に達した際、次の深度に移行させるため、マニュアルで x に +1 をし、右に移動させる
           x += 1
+          # x に +1 をしたので、歩数を 1 進める
+          steps = 1
+          # 歩数を 1 進めたので、合計歩数も 1 進める
+          total_steps += 1
+          # 次の移動が下向き (y += 1) の動きになるよう corner_count をリセットする
           corner_count = 0
+          # 次の深度に移行するので、深さ depth に +2 をする
           depth += 2
         end
       end
     end
 
+    # その時点での合計歩数 total_steps が、与えられた歩数 n に達した場合、処理を抜ける
     if total_steps == n
       break
     end
