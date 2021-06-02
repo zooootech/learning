@@ -63,24 +63,24 @@
 x, y, n = gets.chomp.split.map(&:to_i)
 
 directions = ["N", "E", "S", "W"]
-now_directions = 0
+now_direction = 0
 
 for i in 1..n
   d = gets.chomp
   
   if d == "L"
-    now_directions = (now_directions + 3) % 4
+    now_direction = (now_direction + 3) % 4
   else
-    now_directions = (now_directions + 1) % 4
+    now_direction = (now_direction + 1) % 4
   end
   
-  if directions[now_directions] == "N"
+  if directions[now_direction] == "N"
     y -= 1
-  elsif directions[now_directions] == "E"
+  elsif directions[now_direction] == "E"
     x += 1
-  elsif directions[now_directions] == "S"
+  elsif directions[now_direction] == "S"
     y += 1
-  elsif directions[now_directions] == "W"
+  elsif directions[now_direction] == "W"
     x -= 1
   end
 
