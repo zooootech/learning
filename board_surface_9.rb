@@ -1,3 +1,7 @@
+# 座標系での規則的な移動
+# https://paiza.jp/works/mondai/a_rank_level_up_problems/a_rank_snake_move_step4
+
+
 # 開始時点の x , y 座標と移動の歩数 N が与えられます。
 # 以下の図のように時計回りに渦を巻くように移動を N 歩行った後の x , y 座標 を答えてください。
 # なお、マスの座標系は下方向が y 座標の正の向き、右方向が x 座標の正の向きとします。
@@ -86,7 +90,7 @@ else
     # 歩いた歩数が、(深さ - 1)のとき角に達する
     if steps == (depth - 1)
       # 角に達する度に corner_count を +1 する
-      # corner_count の値が増えると、進む方向が変わる仕様で、それが x, y の値の増減に作用することになる
+      # corner_count の値が増えると、進む方向が変わる仕様で、それが x もしくは y の値の増減に作用することになる
       corner_count += 1
       # 歩数をリセット
       steps = 0
