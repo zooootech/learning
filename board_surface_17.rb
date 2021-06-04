@@ -9,7 +9,7 @@
 
 # リスト directions と、カウント変数 now_direction で移動方向の管理をしています。
 # リスト time_lr と、カウント変数 time_index で次回の時間と方角を表します。
-# times メソッドのブロック変数 t_now を時刻を表す変数とし、方向転換の時刻になったら方角を変え time_index += 1 とします。
+# timesメソッドのブロック変数 t_now を時刻を表す変数とし、方向転換の時刻になったら方角を変え time_index += 1 とします。
 # 移動できるようなら array[sy][sx] = "*" とマスを書き換え、できないようならループを抜けます。
 
 h, w, sy, sx, n = gets.chomp.split.map(&:to_i)
@@ -32,7 +32,7 @@ array[sy][sx] = "*"
 time_index = 0
 
 100.times do |t_now|
-  # 以下の if 文において、time_index < n を条件にするのは、t_now.to_s == time_lr[time_index][0] だけだとエラーが起こるためである
+  # 以下の if において、time_index < n を条件にするのは、t_now.to_s == time_lr[time_index][0] だけだとエラーが起こるためである
   # 繰り返し処理の中で、方向転換を全てしきったタイミング (time_index == n - 1 のとき）にて、さらにそこから time_index += 1 が行われ、次の繰り返し処理では time_index == n の状態で始まることになる
   # そのタイミングで time_lr[time_index][0] について考えると、 time_lr の 1 つ目の添字に n の値を代入した場合、 time_lr には n - 1 番目までの要素しかないため、 time_lr[n] から得られる値は nil になる
   # time_lr[n] == nil のとき、time_lr[n][0] という記述は nil に添字を指定していることになるため、エラーが起こる
