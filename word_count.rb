@@ -43,3 +43,14 @@ array2.each do |word|  # array2 に格納されている要素を一つずつ取
   count = array1.count(word)  # array1 に、 word と同じ要素がいくつあるかをカウントし、変数に代入
   puts "#{word} #{count}"
 end
+
+# -------------------------------------------------
+
+words = gets.chomp.split
+
+now_word = 0  # 添字に利用
+
+while words.size != 0  # 配列 words の要素がなくなるまで繰り返し処理を行う
+  puts "#{words[now_word]} #{words.count(words[now_word])}"
+  words.delete(words[now_word])
+end
