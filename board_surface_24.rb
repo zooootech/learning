@@ -3,7 +3,7 @@
 
 h, w, y, x = gets.chomp.split.map(&:to_i)
 
-array = Array.new(h).map {Array.new(w, ".")}
+array = Array.new(h).map { Array.new(w, ".") }
 
 for i in 0..(h - 1)
   for j in 0..(w - 1)
