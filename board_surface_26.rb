@@ -3,7 +3,7 @@
 
 h, w, y, x = gets.chomp.split.map(&:to_i)
 
-s = Array.new(h).map {Array.new(w, ".")}
+s = Array.new(h).map { Array.new(w, ".") }
 
 s[y][x] = "!"
 
