@@ -37,7 +37,8 @@ time_index = 0
   # そのタイミングで time_lr[time_index][0] について考えると、 time_lr の 1 つ目の添字に n の値を代入した場合、 time_lr には n - 1 番目までの要素しかないため、 time_lr[n] から得られる値は nil になる
   # time_lr[n] == nil のとき、time_lr[n][0] という記述は nil に添字を指定していることになるため、エラーが起こる
   # なので、 if の条件には time_index < n を加えてあげて、方向転換を全てしきった後、 time_index == n の状態では time_index < n によって false を返すようにし、t_now.to_s == time_lr[time_index][0] での判定を行わないようにする
-  # 仮に、 t_now.to_s == time_lr[time_index][0] && time_index < n のように順番を逆に記述してしまうと、はじめに t_now.to_s == time_lr[time_index][0] での検証を行なってしまうことになるのでエラーが起こる
+  # 論理演算子の、左から右へ順に条件式を評価していき、式全体の評価が確定した場合はその時点で残りの評価を行わないという仕組みのことを、短絡評価と呼びます
+  # 仮に、 t_now.to_s == time_lr[time_index][0] && time_index < n のように順番を逆に記述してしまうと、はじめに t_now.to_s == time_lr[time_index][0] での評価を行なってしまうことになるのでエラーが起こる
   if time_index < n && t_now.to_s == time_lr[time_index][0]
     d = time_lr[time_index][1]
     time_index += 1
