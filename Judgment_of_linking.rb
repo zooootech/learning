@@ -149,8 +149,8 @@ points = [0]
 flags[0] = 1
 
 while points.length > 0
-  # pop は自身の末尾から要素を取り除いてそれを返します。 pop(n) のように引数を指定した場合はその個数だけ取り除き、それを配列で返します。
-  point = points.pop
+  # shift は配列の先頭の要素を取り除いてそれを返します。 shift(n) のように引数を指定した場合はその個数だけ取り除き、それを配列で返します。
+  point = points.shift
   g[point].length.times do |i|
     if g[point][i] == 1
       g[point][i] = 0
